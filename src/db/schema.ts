@@ -1,7 +1,10 @@
 import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core'
 
-export const todos = pgTable('todos', {
+export const learningsTable = pgTable('learnings', {
   id: serial('id').primaryKey(),
-  title: text('title').notNull(),
-  createdAt: timestamp('created_at').defaultNow(),
+  content: text('content').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
 })
+
+export type InsertLearning = typeof learningsTable.$inferInsert
+export type SelectLearning = typeof learningsTable.$inferSelect
