@@ -24,6 +24,7 @@ const config = defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
+      strategies: 'generateSW',
       manifest: {
         name: 'What Did You Learn?',
         short_name: 'Learnings',
