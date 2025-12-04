@@ -3,6 +3,7 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import { ThemeProvider } from '../components/theme-provider'
+import { PWARegister } from '../components/pwa-register'
 
 import appCss from '../styles.css?url'
 
@@ -17,6 +18,10 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
+        name: 'theme-color',
+        content: '#000000',
+      },
+      {
         title: 'What Did You Learn?',
       },
     ],
@@ -24,6 +29,10 @@ export const Route = createRootRoute({
       {
         rel: 'stylesheet',
         href: appCss,
+      },
+      {
+        rel: 'manifest',
+        href: '/manifest.json',
       },
     ],
   }),
@@ -52,6 +61,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             ]}
           />
         </ThemeProvider>
+        <PWARegister />
         <Scripts />
       </body>
     </html>
